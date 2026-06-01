@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSO 월간 업무 보고서 — 2025년 5월 | 쉬즈성형외과</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a2744;
+    --accent: #3a5fcd;
+    --staff: #534AB7;
+    --pr: #0F6E56;
+    --customer: #993C1D;
+    --ops: #4a4a4a;
+    --border: #e2e6f0;
+    --text: #1a2744;
+    --text-muted: #6b7a99;
+    --bg: #f5f7fc;
+    --white: #ffffff;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.7; }
+
+  /* 상단 네비 */
+  .top-nav { background: var(--primary); padding: 10px 64px; }
+  .top-nav a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; }
+  .top-nav a:hover { color: white; }
+
+  /* 표지 */
+  .cover { background: var(--primary); color: white; padding: 48px 64px 40px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(58,95,205,0.18); }
+  .cover-title { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; margin-bottom: 6px; }
+  .cover-title span { color: #7b9cff; }
+  .cover-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 20px; }
+  .cover-meta-item .mlabel { font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 3px; }
+  .cover-meta-item .mval { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 36px 32px 64px; }
+
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* 요약 카드 */
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+  .sum-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; border-top: 3px solid transparent; }
+  .sum-card.staff { border-top-color: var(--staff); }
+  .sum-card.pr { border-top-color: var(--pr); }
+  .sum-card.customer { border-top-color: var(--customer); }
+  .sum-card.ops { border-top-color: var(--ops); }
+  .sum-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .sum-card.staff .sum-card-label { color: var(--staff); }
+  .sum-card.pr .sum-card-label { color: var(--pr); }
+  .sum-card.customer .sum-card-label { color: var(--customer); }
+  .sum-card.ops .sum-card-label { color: var(--ops); }
+  .sum-card-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+
+  /* 탭 */
+  .tabs-wrap { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .tab-nav { display: flex; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn { flex-shrink: 0; padding: 14px 22px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; color: var(--text-muted); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.18s; white-space: nowrap; }
+  .tab-btn:hover { color: var(--text); background: var(--bg); }
+  .tab-btn.active { color: var(--accent); font-weight: 700; border-bottom-color: var(--accent); background: var(--white); }
+  .tab-panel { display: none; padding: 28px 28px 32px; }
+  .tab-panel.active { display: block; }
+
+  .week-period { font-size: 11px; color: var(--text-muted); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 0.5px solid var(--border); }
+
+  .cat-block { margin-bottom: 28px; }
+  .cat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .cat-pip { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .cat-pip.staff { background: var(--staff); }
+  .cat-pip.pr { background: var(--pr); }
+  .cat-pip.customer { background: var(--customer); }
+  .cat-pip.ops { background: var(--ops); }
+  .cat-name { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cat-name.staff { color: var(--staff); }
+  .cat-name.pr { color: var(--pr); }
+  .cat-name.customer { color: var(--customer); }
+  .cat-name.ops { color: var(--ops); }
+
+  .item-list { list-style: none; padding-left: 18px; border-left: 2px solid var(--border); }
+  .item-list li { padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .item-list li:last-child { border-bottom: none; }
+  .item-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+  .item-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; min-width: 160px; }
+  .item-detail { font-size: 12.5px; color: var(--text-muted); line-height: 1.7; margin-top: 4px; padding-left: 2px; }
+
+  .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-muted); flex-wrap: wrap; gap: 8px; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 14px; color: var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="top-nav"><a href="../index.html">← 보고서 목록으로</a></div>
+
+<div class="cover">
+  <div class="cover-title">월간 업무 보고서 &nbsp;<span>2025년 5월</span></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="mlabel">보고 기간</div><div class="mval">2025. 5. 1 – 5. 31</div></div>
+    <div class="cover-meta-item"><div class="mlabel">기관명</div><div class="mval">쉬즈성형외과</div></div>
+    <div class="cover-meta-item"><div class="mlabel">작성</div><div class="mval">팀장 홍소연</div></div>
+    <div class="cover-meta-item"><div class="mlabel">보고 주차</div><div class="mval">5월 1주 – 5월 4주 (4주)</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">핵심 업무 요약</div>
+  <div class="summary-grid">
+    <div class="sum-card staff">
+      <div class="sum-card-label">직원</div>
+      <div class="sum-card-text">민경님 복귀, 상담 교육 본격 시작(2인 1조), 가연님 퇴사 및 인수인계, 안차령님 수습 채용 검토, 제은경님 업무 전환 면담, 부산시 통역자 지원사업 신청</div>
+    </div>
+    <div class="sum-card pr">
+      <div class="sum-card-label">홍보</div>
+      <div class="sum-card-text">AI 홍보영상 제작 완료, 홈페이지 수술 후 주의사항 반영, SEO 최적화 착수, 상담봇·자동 콘텐츠 봇 기획 진행, 다국어 홈페이지 기획 시작, 카톡채널 운영 체계 정비</div>
+    </div>
+    <div class="sum-card customer">
+      <div class="sum-card-label">고객</div>
+      <div class="sum-card-text">우수고객 선물 증정 시작, 6월 기존고객 프로모션 확정 및 문자 발송 준비, 단순상담 고객 전화 안내 진행, 삼육병원·마티에 호텔 제휴, 시드니 리앙 VIP 방문 응대</div>
+    </div>
+    <div class="sum-card ops">
+      <div class="sum-card-label">기타 지원</div>
+      <div class="sum-card-text">부산은행 DC형 퇴직연금 개설, 건강보험 정산 안내, 원내 결제 체계 마이님 일원화, 러시아 기자단 방문 대응</div>
+    </div>
+  </div>
+
+  <div class="section-title">주차별 업무 상세</div>
+  <div class="tabs-wrap">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('w1',this)">5월 1주</button>
+      <button class="tab-btn" onclick="showTab('w2',this)">5월 2주</button>
+      <button class="tab-btn" onclick="showTab('w3',this)">5월 3주</button>
+      <button class="tab-btn" onclick="showTab('w4',this)">5월 4주</button>
+    </div>
+
+    <!-- 5월 1주 -->
+    <div class="tab-panel active" id="w1">
+      <div class="week-period">보고 기간: 2025. 5. 1 – 5. 10</div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">민경님 복귀 완료</span></div><div class="item-detail">4월 말 복귀 완료. 간호팀 인력 안정화.</div></li>
+          <li><div class="item-row"><span class="item-title">제은경님 근무 변경 면담</span></div><div class="item-detail">주 40시간 전환 및 한국 상담팀 업무 담당 변경 논의. 5월 6일 오후 3시 면담 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">상담 매뉴얼 교육 본격 시작</span></div><div class="item-detail">2인 1조(경력자+신입) 팀 구성. 수요일 오전까지 조 확정 후 즉시 연습 시작. 담당: 마이·제은경·은경·신혜 및 희망자. 간호팀도 참여 권장.</div></li>
+          <li><div class="item-row"><span class="item-title">상담팀 면접 진행</span></div><div class="item-detail">영어 면접 3명 진행. 우수 후보 1명 타 취업으로 불발. 나머지 2명 주초 회의에서 채용 여부 검토.</div></li>
+          <li><div class="item-row"><span class="item-title">안차령님 채용 검토</span></div><div class="item-detail">추가 참관 또는 수습 채용 여부 결정 필요. 구인 공고 지속 진행.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">AI 홍보 영상 제작 완료 목표</span></div><div class="item-detail">스크립트 중심 제작. 제출 전 원고·기획의도 사전 공유 필수. 정은님 영상 수정 중(목소리 교체, 원거리 사진 적용).</div></li>
+          <li><div class="item-row"><span class="item-title">상담 매뉴얼 음성·영상 파일 제작</span></div><div class="item-detail">성희님 담당. 노션 또는 온라인 매뉴얼 북 형태 제작. 교육용으로 활용.</div></li>
+          <li><div class="item-row"><span class="item-title">수술 후 주의사항 배부 및 홈페이지 반영</span></div><div class="item-detail">한국어·외국어 완료. 잔디 드라이브(고객_안내) 저장. 새 안내장 즉시 사용. 홈페이지 국문부터 반영 시작. 마이님 리드.</div></li>
+          <li><div class="item-row"><span class="item-title">홈페이지 콘텐츠 최적화 착수</span></div><div class="item-detail">신규 업로드 시 최적화 필수 적용. 5월 중순부터 기존 글 최적화 작업 시작.</div></li>
+          <li><div class="item-row"><span class="item-title">모니터 영상·카톡채널 홍보·에이전시 관리 5월 이관</span></div><div class="item-detail">원장과 함께 진행 예정.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">우수고객 선물 증정 시작</span></div><div class="item-detail">태반음료 5월 6~7일 도착 예정. 7박스씩 순차 배송. 화장품 병행 증정. 고객별 맞춤 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">소개고객 집계표 즉시 공유 원칙 확립</span></div><div class="item-detail">발생 즉시 담당자 공유 원칙.</div></li>
+          <li><div class="item-row"><span class="item-title">6월 기존고객 프로모션 기획 착수</span></div><div class="item-detail">비수기 사은·할인 프로모션. 필러·스킨부스터·레이저 등 한정 시술 15% 할인. 3주 전 기획 완료 목표.</div></li>
+          <li><div class="item-row"><span class="item-title">단순상담 고객 프로모션 문자·전화 안내</span></div><div class="item-detail">1~4월 단순상담 고객 대상. 메인 수술(눈·얼굴주름) 한정. 이번 주 내 문자 발송 후 전화 안내. 성과 수당 담당자 1명 귀속.</div></li>
+          <li><div class="item-row"><span class="item-title">수술·시술 후 스킨케어 할인 안내 시작</span></div><div class="item-detail">전 담당자 리콜관리 및 카톡채널 통해 안내. 한국 고객 카톡채널 친구추가 병행.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip ops"></div><span class="cat-name ops">기타 지원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">부산은행 DC형 퇴직연금 개설</span></div><div class="item-detail">5월 6일 오전 10시 PB 방문. DC형 가입, 기존 적립 이전. 신규는 예금형 가입 후 주식형 전환. 일부 팀원 신규 가입 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">원내 결제 체계 정비</span></div><div class="item-detail">소액·비정기·자동이체 불가 결제 및 비품 카드 결제 마이님 일원화 담당. BC 카드 가입 진행 중.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5월 2주 -->
+    <div class="tab-panel" id="w2">
+      <div class="week-period">보고 기간: 2025. 5. 12 – 5. 17</div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">건강보험 정산 안내</span></div><div class="item-detail">4월 급여에 25년 건강보험료 정산 반영. 급여 인상자 추가 공제, 인하자 환급. 향후 큰 폭 인상 시 할부 진행 방침. 급여명세서 세전·공제액 확인 필수.</div></li>
+          <li><div class="item-row"><span class="item-title">간호팀 성과 수당 지급 종료 공지</span></div><div class="item-detail">4월까지 지급(주 40시간·32시간 각 20만원). 1~4월 총 130만원. 인원 충원으로 종료.</div></li>
+          <li><div class="item-row"><span class="item-title">상담 교육 본격 진행</span></div><div class="item-detail">2인 1조 팀 연습. 현 매뉴얼: 안면거상·프리미엄 리프팅 패키지. 수·목 원장 동석 연습 예정. 진료실 참관 병행.</div></li>
+          <li><div class="item-row"><span class="item-title">신규 상담 인력 집중 교육</span></div><div class="item-detail">환자 응대 시작·종료, 엘리베이터 배웅·주차 안내, 복장·태도·무례한 고객 응대까지 이번 주 내 완료.</div></li>
+          <li><div class="item-row"><span class="item-title">안차령님 채용 여부 결정</span></div><div class="item-detail">추가 참관 또는 수습 채용 결정. 구인 공고 강화.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">상담 매뉴얼 영상 배부</span></div><div class="item-detail">성희님 월요일 오후 공유. 드라이브 업로드 후 교육 매뉴얼로 활용.</div></li>
+          <li><div class="item-row"><span class="item-title">AI 영상 진행 현황 점검</span></div><div class="item-detail">정은님 수정 중. 기타 담당자 진행 현황 확인. 완료 또는 포기 의사 명확히 전달 요망.</div></li>
+          <li><div class="item-row"><span class="item-title">홈페이지 콘텐츠 최적화 점검</span></div><div class="item-detail">나라별 주요 키워드 5개 구글 검색 노출 현황 점검. 성희님 1차 체크 후 보고.</div></li>
+          <li><div class="item-row"><span class="item-title">모니터 영상·카톡채널 홍보·에이전시 관리 5월 2주 이관</span></div><div class="item-detail">원장 동행 진행.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">우수고객 선물 증정 진행</span></div><div class="item-detail">25년 우수고객(29명) + 26년 1분기 우수고객(6명) 동시 진행. 주 단위 경과 보고. 태반음료·화장품 고객별 맞춤 증정.</div></li>
+          <li><div class="item-row"><span class="item-title">소개고객 선물 증정</span></div><div class="item-detail">4월 2명 선정. 선물 증정 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">6월 프로모션 문자 발송 준비</span></div><div class="item-detail">5월 13일 전 1차 문자 발송 완료 목표. 브이로 리프팅 확정. 카톡채널 카드형 3종 동시 게시.</div></li>
+          <li><div class="item-row"><span class="item-title">단순상담 고객 프로모션 발송</span></div><div class="item-detail">문자 내용 수정 완료. 원장님 승인 후 즉시 발송.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5월 3주 -->
+    <div class="tab-panel" id="w3">
+      <div class="week-period">보고 기간: 2025. 5. 19 – 5. 24</div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">은경님 상담팀 업무 시작</span></div><div class="item-detail">고객 내원 시 상담실 전화 업무 및 데스크 고객 응대 담당. 고객 없는 시간대는 6층 사무실 활용(2시간 이내). 데스크 적정 인원 2명 유지.</div></li>
+          <li><div class="item-row"><span class="item-title">빅토리야 주 2회 출근 전환</span></div><div class="item-detail">상담팀 지원 및 원내 포스팅 업무(6층). 데스크 업무는 마이님 요청에 따라 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">가연님 5월 말 퇴사 및 인수인계</span></div><div class="item-detail">수술 전후 고객 응대, 수술 예약 고객 직전 상담, 어려운 상담 케이스 응대 교육 진행. 교육 대상자와 롤플레이 및 평가지 작성. 교육 이력 구글 시트 기재.</div></li>
+          <li><div class="item-row"><span class="item-title">안차령님 수습 채용 검토</span></div><div class="item-detail">입사 가능 일자 확인. 견습 기간 설정. 구인 공고 지속 병행.</div></li>
+          <li><div class="item-row"><span class="item-title">부산시 통역자 지원사업 신청 준비</span></div><div class="item-detail">영어 통역 코디 분야 신청. 담당자 신청서 준비 중. 우수 인력 정규직 채용 계획.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">수술 후 주의사항 홈페이지 반영 완료 목표</span></div><div class="item-detail">국문 완료 후 외국어 페이지 업로드 및 크로스 체크 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">카톡채널 홍보 업로드</span></div><div class="item-detail">카프 인증 완료 건, 6월 프로모션 안내, 기존 고객 프로모션 순서로 업로드. 원장님 직접 담당.</div></li>
+          <li><div class="item-row"><span class="item-title">AI 영상 진행 현황 공유</span></div><div class="item-detail">화요일 오전까지 진행 상황 공유. 완료·포기·연장 여부 명확히 전달.</div></li>
+          <li><div class="item-row"><span class="item-title">상담 매뉴얼 연습 체크 및 구글 시트 기재</span></div><div class="item-detail">연습 시간·내용 구글 시트 작성 의무화. 원장 수시 점검(대면·전화).</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">6월 프로모션 시술 내용 확정</span></div><div class="item-detail">브이로 리프팅, 포텐자, 리쥬란 힐러 확정. 담당자별 진행사항 시트 기재. 6월 중순 이후 필러·피부관리 추가 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">단순상담 고객 전화 안내 진행</span></div><div class="item-detail">문자 발송 2~3일 후 안내 전화 진행. 수술 전환 시 성과 수당 지급. 처음부터 끝까지 담당자 1명 전담 원칙.</div></li>
+          <li><div class="item-row"><span class="item-title">우수고객·소개고객 선물 증정 공동 일지 기재</span></div><div class="item-detail">25년 우수고객, 26년 1분기 우수고객, 소개고객 모두 공동 일지에 진행 현황 기록.</div></li>
+          <li><div class="item-row"><span class="item-title">스킨케어 할인 안내 활성화 방안 기획</span></div><div class="item-detail">현행 방법 취합 후 더 적극적인 안내 방법 기획. 정은님 리드. 홈페이지·문자 외 추가 채널 검토.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5월 4주 -->
+    <div class="tab-panel" id="w4">
+      <div class="week-period">보고 기간: 2025. 5. 26 – 5. 31</div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">상담 연습 지속 및 매뉴얼 점검</span></div><div class="item-detail">매일 연습, 자연스러운 발음 목표. 상담 매뉴얼 기본 준수, 개인 응대 멘트 추가 가능. 업무 일지 통해 연습 현황 확인.</div></li>
+          <li><div class="item-row"><span class="item-title">상담 매뉴얼 형식 통일화 작업</span></div><div class="item-detail">간결하고 통일된 형식으로 전면 수정. 보톡스·필러·하안검&지방재배치 수정 완료. 프리미엄 패키지 2개 샘플 기준으로 재작성. 원장님 검수 후 팀원 공유.</div></li>
+          <li><div class="item-row"><span class="item-title">러시아 기자단 방문 대응</span></div><div class="item-detail">5월 29일 방문. 담당 통역 직원 2명 중심 진행. 모니터 영상·배부 자료·음료·선물 준비. 상담팀 전원 보조.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">국문 홈페이지 수술 전후 주의사항 반영 완료</span></div><div class="item-detail">외국어 페이지 업로드 및 크로스 체크 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">상담봇·자동 콘텐츠 봇·대시보드 기획 진행</span></div><div class="item-detail">상담봇, 대시보드, AI 자동 콘텐츠 업로드 봇 3건 동시 협의 중. 맞춤 시안 완료 후 전체 공유 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">카톡채널 월 2회 운영 체계 확립</span></div><div class="item-detail">기존 고객 대상 원장님 직접 운영. 수개월 후 담당자 이관 계획.</div></li>
+          <li><div class="item-row"><span class="item-title">다국어 홈페이지 기획 시작</span></div><div class="item-detail">프랑스·인도네시아·말레이시아 싱글 홈페이지 구축. shesps.com 하단 언어 탭 구성. 사이트맵 1차 완료, 기획 회의 통해 확정 예정.</div></li>
+        </ul>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">시드니 리앙 VIP 방문 응대</span></div><div class="item-detail">5월 30일 방문. 코수술 기존 고객 및 주요 소개자. 담당 통역 직원 방문 응대, 간호팀 전담 케어. 컨시어지 서비스 왕복 제공. 한국적 선물 준비.</div></li>
+          <li><div class="item-row"><span class="item-title">삼육병원 제휴 추진</span></div><div class="item-detail">국제진료팀과 협력 체계 구축. 카자흐스탄·러시아 고객 유입 연계. 리플렛 발송 및 CRM 소개 경로 표시 체계 마련.</div></li>
+          <li><div class="item-row"><span class="item-title">마티에 호텔(5성급) 제휴 완료</span></div><div class="item-detail">부산항 소재 5성급 호텔. 외국인 고객 안내 및 우수·재방 고객 선물로 활용. 월별 수가표 수령 예정. 신혜님 제휴 호텔 관리 담당.</div></li>
+          <li><div class="item-row"><span class="item-title">기존고객 6월 프로모션 문자 발송 준비</span></div><div class="item-detail">문자 내용 확정. 발송 준비 완료.</div></li>
+          <li><div class="item-row"><span class="item-title">재방 고객 서비스 기획 착수</span></div><div class="item-detail">시술·스킨케어 고객 대상 혜택 부재 확인. 6월 2주 회의에서 구체적 기획안 논의 예정. 간호팀 포함 전 팀원 아이디어 준비.</div></li>
+          <li><div class="item-row"><span class="item-title">컨시어지 서비스 적극 활용</span></div><div class="item-detail">월 10건 지원. 재방 외국인 고객 비공식 제공 가능. 담당자 재량 하에 마이님과 사전 협의 후 진행.</div></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">(주)더원인러브</div>
+    <div>MSO 월간 업무 보고서 · 2025년 5월 · 팀장 홍소연</div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
