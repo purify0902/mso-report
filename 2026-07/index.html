@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSO 월간 업무 보고서 — 2026년 7월 | 쉬즈성형외과</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a2744;
+    --accent: #3a5fcd;
+    --staff: #534AB7;
+    --pr: #0F6E56;
+    --customer: #993C1D;
+    --ops: #4a4a4a;
+    --border: #e2e6f0;
+    --text: #1a2744;
+    --text-muted: #6b7a99;
+    --bg: #f5f7fc;
+    --white: #ffffff;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.7; }
+  .top-nav { background: var(--primary); padding: 10px 64px; }
+  .top-nav a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; }
+  .top-nav a:hover { color: white; }
+  .cover { background: var(--primary); color: white; padding: 48px 64px 40px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(58,95,205,0.18); }
+  .cover-title { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; margin-bottom: 6px; }
+  .cover-title span { color: #7b9cff; }
+  .cover-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 20px; }
+  .cover-meta-item .mlabel { font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 3px; }
+  .cover-meta-item .mval { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .container { max-width: 960px; margin: 0 auto; padding: 36px 32px 64px; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+  .sum-card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; border-top: 3px solid transparent; }
+  .sum-card.staff { border-top-color: var(--staff); }
+  .sum-card.pr { border-top-color: var(--pr); }
+  .sum-card.customer { border-top-color: var(--customer); }
+  .sum-card.ops { border-top-color: var(--ops); }
+  .sum-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .sum-card.staff .sum-card-label { color: var(--staff); }
+  .sum-card.pr .sum-card-label { color: var(--pr); }
+  .sum-card.customer .sum-card-label { color: var(--customer); }
+  .sum-card.ops .sum-card-label { color: var(--ops); }
+  .sum-card-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+  .tabs-wrap { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .tab-nav { display: flex; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn { flex-shrink: 0; padding: 14px 22px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; color: var(--text-muted); background: none; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.18s; white-space: nowrap; }
+  .tab-btn:hover { color: var(--text); background: var(--bg); }
+  .tab-btn.active { color: var(--accent); font-weight: 700; border-bottom-color: var(--accent); background: var(--white); }
+  .tab-btn:disabled { color: #c2c9da; cursor: default; }
+  .tab-btn:disabled:hover { background: none; color: #c2c9da; }
+  .tab-panel { display: none; padding: 28px 28px 32px; }
+  .tab-panel.active { display: block; }
+  .week-period { font-size: 11px; color: var(--text-muted); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 0.5px solid var(--border); }
+  .cat-block { margin-bottom: 28px; }
+  .cat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .cat-pip { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .cat-pip.staff { background: var(--staff); }
+  .cat-pip.pr { background: var(--pr); }
+  .cat-pip.customer { background: var(--customer); }
+  .cat-pip.ops { background: var(--ops); }
+  .cat-name { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cat-name.staff { color: var(--staff); }
+  .cat-name.pr { color: var(--pr); }
+  .cat-name.customer { color: var(--customer); }
+  .cat-name.ops { color: var(--ops); }
+  .item-list { list-style: none; padding-left: 18px; border-left: 2px solid var(--border); }
+  .item-list li { padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .item-list li:last-child { border-bottom: none; }
+  .item-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+  .item-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; min-width: 160px; }
+  .item-detail { font-size: 12.5px; color: var(--text-muted); line-height: 1.7; margin-top: 4px; padding-left: 2px; }
+  .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-muted); flex-wrap: wrap; gap: 8px; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 14px; color: var(--primary); }
+</style>
+</head>
+<body>
+<div class="top-nav"><a href="../index.html">← 보고서 목록으로</a></div>
+<div class="cover">
+  <div class="cover-title">월간 업무 보고서 &nbsp;<span>2026년 7월</span></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="mlabel">보고 기간</div><div class="mval">2026. 7. 1 – 7. 31</div></div>
+    <div class="cover-meta-item"><div class="mlabel">기관명</div><div class="mval">쉬즈성형외과</div></div>
+    <div class="cover-meta-item"><div class="mlabel">작성</div><div class="mval">팀장 홍소연</div></div>
+    <div class="cover-meta-item"><div class="mlabel">보고 주차</div><div class="mval">7월 1주 – 5주 (5주)</div></div>
+  </div>
+</div>
+<div class="container">
+  <div class="section-title">핵심 업무 요약</div>
+  <div class="summary-grid">
+    <div class="sum-card staff">
+      <div class="sum-card-label">직원</div>
+      <div class="sum-card-text">잔디 드라이브·구글 보고 체계 정비, 상담팀·피부팀 업무 분장 완료, 당일 고객 정보 공유 체계 신설, CS교육 시작 및 8월 재교육 예고, 간호팀 인력 부족 대응 및 5명 체제 충원 계획, 법무부 우수유치기관 신청 완료, 팀원 입퇴사 및 채용 진행</div>
+    </div>
+    <div class="sum-card pr">
+      <div class="sum-card-label">홍보</div>
+      <div class="sum-card-text">프로모션과 상시 혜택 항목 분리, 재방문 고객 우대 혜택 홈페이지·외국어 페이지 업로드, 벨로테로·에버클 시술 정보 확정 및 패키징 작업, 카프 인증 탭 섬네일 수정, 구글 검색 최적화 포스팅 강화</div>
+    </div>
+    <div class="sum-card customer">
+      <div class="sum-card-label">고객</div>
+      <div class="sum-card-text">고객 연령표 집계 기준 정비, 상반기 재방고객 비중 집계(한국 84%·일본 70%·러시아 60%), 재방고객 우대 혜택 전사 공지 및 문자 발송, 채널 추가 및 리뷰 확보 지속</div>
+    </div>
+    <div class="sum-card ops">
+      <div class="sum-card-label">기타 지원</div>
+      <div class="sum-card-text">퇴직연금 이전 및 근로계약·성과공유 계약 정비, 항노화 클리닉(메타셀) 도입 검토, 1~5층 기획 및 화장품 유통 검토, 수출기업 인증 신청, PC·보안 계정 관리 업데이트</div>
+    </div>
+  </div>
+  <div class="section-title">주차별 업무 상세</div>
+  <div class="tabs-wrap">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('w1',this)">7월 1주</button>
+      <button class="tab-btn" onclick="showTab('w2',this)">7월 2주</button>
+      <button class="tab-btn" onclick="showTab('w3',this)">7월 3주</button>
+      <button class="tab-btn" onclick="showTab('w4',this)">7월 4주</button>
+      <button class="tab-btn" onclick="showTab('w5',this)">7월 5주</button>
+    </div>
+
+    <!-- 7월 1주 -->
+    <div class="tab-panel active" id="w1">
+      <div class="week-period">보고 기간: 2026. 6. 29 – 7. 4</div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">구글 보고 양식 2주 단위 업데이트</span></div><div class="item-detail">7월 1~15일 보고 양식은 7월 1일 아침 업로드 예정, 최적화 시점까지 조금씩 조정 지속. 업무 보고는 매일 저녁 10분 작성 원칙, 미이행 팀원에게 코멘트로 피드백 전달.</div></li>
+          <li><div class="item-row"><span class="item-title">잔디 드라이브 담당자 지정</span></div><div class="item-detail">토픽 개설 후 수요일까지 적용 확인, 이후 전 팀원 공유. 업로드만큼 팀원들이 인지하는 것이 중요하다는 점 강조.</div></li>
+          <li><div class="item-row"><span class="item-title">외국인환자유치인증기관 내부 점검 체계화</span></div><div class="item-detail">현진님 담당, 팀별 집계표를 작성해 매월 주기로 진행. 업로드 일자·수칙·담당자를 정해 별도 토픽에서 관리.</div></li>
+          <li><div class="item-row"><span class="item-title">상담팀 업무표 확인</span></div><div class="item-detail">한정은·최신혜·마이님 업무표를 월요일까지 확인 후 화요일 공유. 담당 업무를 시작부터 마무리까지 심플하게 나누는 방향으로 정비.</div></li>
+          <li><div class="item-row"><span class="item-title">아침 미팅 정례화 추진</span></div><div class="item-detail">당일 방문 고객을 전 직원이 인지하도록 대면 미팅으로 안내 시작.</div></li>
+          <li><div class="item-row"><span class="item-title">수술팀 정은님 부상 휴가</span></div><div class="item-detail">6주간 깁스 예정, 1주는 완전 휴가 후 검사 결과에 따라 복귀 결정. 휴가 기간 중 영어 통역 필요 시에만 참석.</div></li>
+          <li><div class="item-row"><span class="item-title">간호팀 안차령님 입사 환대</span></div><div class="item-detail">전 팀원이 적극적으로 다가가 팀 간 경계를 허물고 친밀하게 지내도록 독려.</div></li>
+          <li><div class="item-row"><span class="item-title">상담팀 언어 테스트 진행</span></div><div class="item-detail">이번 주 수시 진행, 대면이 어려운 경우 전화 상담으로 대체.</div></li>
+          <li><div class="item-row"><span class="item-title">시설 점검 진행</span></div><div class="item-detail">7·8층 데스크 상단 및 서랍, 공용공간 불필요 물품 정리, 퇴직 직원 락커룸 비우기. 목요일까지 완료 후 금요일 김수진님과 최종 점검.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">프로모션과 기존 혜택 항목 분리</span></div><div class="item-detail">2026년 수술 고객 혜택(스킨케어 할인·컨시어지)과 6개월 내 재방고객 할인(5/10%)은 7·8월 한정 프로모션이 아닌 상시 혜택으로 구분. 한정은님이 재방고객 혜택을 제외하고 프로모션 안을 재정리, 마이님이 2026년 고객관리 집계표에 재방고객 혜택을 업데이트하고 고객관리 토픽을 단일본으로 유지.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 프로모션 세부안 논의</span></div><div class="item-detail">시술 전 케어 사은 혜택 제공 여부와 프리미엄 풀코스·모공풀코스 패키지 내 스킨부스터를 벨로테로로 대체할 경우의 비용 가산 방식을 검토. 임영님 의견 포함해 정은·마이님이 월요일 퇴근 전까지 공유.</div></li>
+          <li><div class="item-row"><span class="item-title">7·8월 프로모션 업로드 (6.30 화)</span></div><div class="item-detail">전 팀원 준비 완료.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 정보 페이지 업로드</span></div><div class="item-detail">월요일 업로드 요청.</div></li>
+          <li><div class="item-row"><span class="item-title">포스팅 이행 기준 안내</span></div><div class="item-detail">포스팅은 업무 약속으로 미이행 시 성과공유 계약 해지 가능, 어려운 경우 미리 양해를 구하고 계약 범위 조정 가능.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">고객 연령표 집계 기준 재요청</span></div><div class="item-detail">3주째 작성 기준 안내를 요청 중, 6월 3주 공지 내용을 재확인해 다시 안내.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7월 2주 -->
+    <div class="tab-panel" id="w2">
+      <div class="week-period">보고 기간: 2026. 7. 6 – 7. 11</div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">성과회의 개최 예고 (7.10)</span></div><div class="item-detail">6월 성과 및 26년 상반기 성과 결과 공유, 목요일 오후 4시 진행. 상담팀 전원 필참, 오프인 경우 회의 시간만 참석 후 다른 날 업무시간 차감. 간호팀 정은님도 참석 요청, 회의록은 피부팀 정은님이 준비·보고·공유까지 담당.</div></li>
+          <li><div class="item-row"><span class="item-title">기존 고객 파악 및 공유 체계 신설</span></div><div class="item-detail">신혜님이 전날 원장님께 받은 익일 방문 고객 정보를 잔디 상담&amp;피부팀·수술팀 채팅방에 매일 공유. 단골·원거리 방문·소개·선호 시술 등 특이사항을 파악해 응대에 반영하도록 안내, 간호팀 역할이 중요. 보고서도 고객관리 항목에 맞춰 작성.</div></li>
+          <li><div class="item-row"><span class="item-title">시설 점검 (월요일)</span></div><div class="item-detail">데스크·수납 공간 위주로 점검 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">상담 테스트 진행 (수요일)</span></div><div class="item-detail">충분한 연습 기간을 거쳐 실시.</div></li>
+          <li><div class="item-row"><span class="item-title">상담팀 업무 분장 진행</span></div><div class="item-detail">공동업무(데스크 전반)와 전담업무(담당자 지정 업무)로 구분. 신혜님 업무보고 수정본 반영 후 상담팀 네 명이 모여 세부 협의 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">잔디 드라이브 정리 및 담당자 배정</span></div><div class="item-detail">드라이브 담당 파일 오전 10시 업로드. 구글 드라이브는 사진·업무보고 공유용으로만 사용하고, 확정 자료는 잔디로 이동하는 원칙 재정립.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">기존 고객 우대 혜택 재안내</span></div><div class="item-detail">6개월 내 재방문하여 100만원 이상 시술 시 시술 5%·수술 10% 할인(횟수 무관 적용). 신규 시술 도입 시 기존 고객 대상 1회 한정 15% 우대 혜택 별도 운영.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 사전 우대 프로모션 (7.10~7.25)</span></div><div class="item-detail">15일간 기존 고객 대상 15% 사전 우대 혜택, 문자 발송 준비. 두 시술 모두 캐뉼라로 진행하며 손주사는 멍 우려로 제외. 간호팀 서브·피부팀 보조, 상담팀·피부팀 채널 및 원내 안내, 구글광고 프로모션 업로드 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">메타셀 MCT 데모 결과 및 패키지 구성</span></div><div class="item-detail">컨디션·집중력 개선 효과 확인, 스킨부스터 시술과 병행 시 시너지 기대. 높은 시술 비용이 부담 요인으로 기존 상품과 결합한 가성비 패키지 구성 후 공유 예정.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">상반기 성과 집계 (나라별 리뷰건수·재방고객)</span></div><div class="item-detail">마이님 담당, 총 3건 집계 진행. 명확한 집계 기준 수립 필요.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip ops"></div><span class="cat-name ops">기타 지원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">6월 매출 최고 실적 달성</span></div><div class="item-detail">비수기임에도 프로모션 효과로 개원 이래 6월 최고 매출 기록. 객단가 상승으로 팀원 피로도도 낮게 유지됨.</div></li>
+          <li><div class="item-row"><span class="item-title">데모·팸투어 담당자 배정</span></div><div class="item-detail">장비 데모는 피부팀 정은님·간호팀 현진님, 팸투어는 피부팀 정은님·간호팀 정은님 담당. 전체 회의는 피부팀 정은님이 리드 및 회의록 공유까지 담당.</div></li>
+          <li><div class="item-row"><span class="item-title">부가세 준비 및 교육 진행</span></div><div class="item-detail">마이님 주도로 이번 주 진행, 필요 시 정은·신혜님 참여.</div></li>
+          <li><div class="item-row"><span class="item-title">OTA 집계리스트·계약서 업데이트</span></div><div class="item-detail">강남언니는 삭제. 계약서 갱신 후 잔디 OTA 폴더 업로드. OTA 드라이브는 성희님, KKDAY는 피부팀 정은님 담당. 연령 분석 보고서 드라이브 미반영 건 확인 필요.</div></li>
+          <li><div class="item-row"><span class="item-title">유니폼 업체 추천 (메디린)</span></div><div class="item-detail">3월 메디컬 코리아 행사에서 확인한 업체. 소매 측면에 카프 로고, 가슴 주머니에 SHE'S 로고(+명찰), 딥그레이 또는 브라운 계열(네이비 제외)로 전면 교체 예정.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7월 3주 -->
+    <div class="tab-panel" id="w3">
+      <div class="week-period">보고 기간: 2026. 7. 13 – 7. 18</div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">당일 방문 고객 정보 공유 체계 운영</span></div><div class="item-detail">신혜님이 담당해 잔디로 매일 공유하는 당일 고객 정보를 상담팀은 상담 시작 전 확인·언급하도록 안내. 간호팀·피부팀 참여도 중요하며, 고객을 기억하는 것이 최우선 가치로 강조됨.</div></li>
+          <li><div class="item-row"><span class="item-title">CS교육 시작</span></div><div class="item-detail">7월은 월 3회, 8월부터는 월 2회 진행. 상담팀 전화응대 포함 전 팀 대상 교육으로 현직 교수(전 병원 매니저 경력) 강사 초빙, 화요일 오후 3시 시작. 마이님이 스케줄 사전 조율·공유.</div></li>
+          <li><div class="item-row"><span class="item-title">상담팀 1차 업무 분장 완료</span></div><div class="item-detail">공동업무표 첨부, 마이님이 잔디 드라이브 업로드. 은경·임영님도 공동업무 포함, 전담업무는 마이·신혜님 사례처럼 작성해 타 팀도 열람. 월요일 오후 상담팀 전원 참석해 공동업무 논의.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">재방문 고객 혜택 안내 콘텐츠 업로드</span></div><div class="item-detail">상담팀·간호팀·피부팀 모두 안내하며, 치료 마지막 단계에서 간호팀 적극 참여 요청. 홈페이지 공지·스토리 포스팅 완료, 외국어 페이지 업로드는 마이님이 리드.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 시술 상세 정보 확정</span></div><div class="item-detail">벨로테로는 2cc 주사, 에버클은 에버클 브이(연두)로 캐뉼라 시술(리쥬비넥스2+유아티1+리도카인 구성), 비용 동일 110만원. 대표·풀코스 패키지에 스킨부스터 2종 추가 방식 및 3회 패키지 구성 검토, 홈페이지 수정 후 팀원 전체 시술 요청 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">재방문 고객 우대 혜택 홈페이지 공지 업로드</span></div><div class="item-detail">공지 섬네일 이미지 변경, 외국어 페이지 업로드 및 순서 정렬은 마이님이 리드.</div></li>
+          <li><div class="item-row"><span class="item-title">카프 인증 탭 섬네일 수정</span></div><div class="item-detail">섬네일은 전체 수정 완료, 글자체는 담당자별 수정 필요. 나라별 사용 폰트를 마이님이 파악해 공유 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 지식 자료 공유 예정</span></div><div class="item-detail">기본 정보 부족을 보완할 1차 안을 화요일 오전 공유.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 패키징 작업 진행</span></div><div class="item-detail">3회 시술 패키지, 대표·풀코스 패키지 추가 구성안을 팀원들이 제안.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">상반기 재방고객 비중 집계 결과 공유</span></div><div class="item-detail">한국 84%, 일본 70%, 러시아 60% 순으로 재방 비중이 높음. 대만·영어권은 재방 비중은 낮으나 신규 고객·매출 대비 재방 비율은 양호. 재방문 비중 제고를 연간 핵심 목표로 설정.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip ops"></div><span class="cat-name ops">기타 지원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">근로계약 및 성과공유 계약 정비</span></div><div class="item-detail">은경·마이님 성과공유계약서 업데이트, 영이님 성과공유는 연말까지 기존 유지. 신혜·영이님과는 월요일 면담 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">퇴직연금 이전 완료</span></div><div class="item-detail">미이전 월 불입금은 7월 입금 예정, 주식형 운용 권장. 안차령님 퇴직급여 계좌 신청서는 월요일 작성해 부산은행 제출, 퇴직연금 도장 준비.</div></li>
+          <li><div class="item-row"><span class="item-title">항노화 클리닉 준비</span></div><div class="item-detail">메타셀 도입 검토 중이며 줄기세포 인증·시설 도입도 함께 검토. 간호팀과 공동 학습 진행.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7월 4주 -->
+    <div class="tab-panel" id="w4">
+      <div class="week-period">보고 기간: 2026. 7. 20 – 7. 25</div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">상담팀 업무 분장표 공유</span></div><div class="item-detail">공동업무·전담업무로 구성, 전 팀원이 서로의 업무를 검토해 협업 포인트 파악. 기획 업무는 상담팀에서 제외하고, 고객 서비스 현황은 회의·잔디로 공유.</div></li>
+          <li><div class="item-row"><span class="item-title">피부팀 업무 분장 진행</span></div><div class="item-detail">정은·수진님 대상, 현재 진행 업무 전체를 리스트업. 마이님 코칭 후 화요일까지 업로드.</div></li>
+          <li><div class="item-row"><span class="item-title">상담자 성과 공유 기준 명확화</span></div><div class="item-detail">한 고객을 처음부터 끝까지 전담했을 때만 성과 인정, 상담만 하고 마무리되지 않은 경우 제외. 7월부터 명확히 체크하며 한국인 고객도 외국인과 동일하게 응대.</div></li>
+          <li><div class="item-row"><span class="item-title">구글 보고 시트 주간 단위 운영</span></div><div class="item-detail">16~31일 보고 시트를 마이님이 업로드. 공동업무는 전원 공통, 마이님과의 공유 업무는 별도 탭에서 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">팀원 입퇴사 및 채용 소식</span></div><div class="item-detail">제이님 이번 주까지 근무 후 퇴사. 24일(금) 오후 2시 삼육병원 수술실 경력 간호사 면접 진행, 8월 4일~31일 수술타임 지원 간호사 합류 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">CS 교육 실습 강화</span></div><div class="item-detail">상담 내용과 함께 실습 연습을 반복 강조, 간호팀도 순차 진행 예정. 강태경 교수님이 건물 전체 CS를 상주하며 담당.</div></li>
+          <li><div class="item-row"><span class="item-title">내방 고객 정보 공유 체계 지속</span></div><div class="item-detail">진료 시작 전 전 팀원이 당일 고객 특징을 확인, 신혜님은 단골 고객을 완전히 숙지하도록 지속.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">구글 검색 최적화 포스팅 작성</span></div><div class="item-detail">부산성형외과 등 주요 키워드 중심으로 포스팅 작성, 노출 여부를 지속 체크.</div></li>
+          <li><div class="item-row"><span class="item-title">벨로테로 공지·지식 글 발전</span></div><div class="item-detail">기존 초안을 발전시켜 이미지 업로드 후 수정 예정, 공지글은 통일된 버전 유지(팀장 요청 후 마이님이 리드해 반영).</div></li>
+          <li><div class="item-row"><span class="item-title">홈페이지 노출 최적화 포인트 공유</span></div><div class="item-detail">지식·에세이 콘텐츠가 노출에 유리, 메타 태그는 제목과 본문 첫 줄 기준. 자동 포스팅 1차 체크는 수요일 진행하되 수정 소요 시간이 더 걸릴 것으로 예상.</div></li>
+          <li><div class="item-row"><span class="item-title">브랜딩 영상 제작 업체 협의</span></div><div class="item-detail">7월 말까지 견적서 수령 예정.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip customer"></div><span class="cat-name customer">고객</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">연간 목표 재확인 및 상반기 재방고객 집계표 공유</span></div><div class="item-detail">재방고객 비중 제고를 통한 프리미엄 성형외과 입지 구축이 핵심 목표. 한국·러시아·일본은 재방 비중이 높고, 영어권·대만은 신규 고객 비중이 높아 성장세로 긍정 평가.</div></li>
+          <li><div class="item-row"><span class="item-title">재방고객 우대 혜택 재공지</span></div><div class="item-detail">전 담당자·간호팀까지 완전 숙지 필요. 모든 내방 고객에게 문자 발송(마이님) 및 담당자 구두 안내 병행, 신혜·마이님이 관리.</div></li>
+          <li><div class="item-row"><span class="item-title">채널 추가 및 리뷰 확보 지속 요청</span></div><div class="item-detail">각 채널 등록과 리뷰 작성을 지속적으로 독려.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip ops"></div><span class="cat-name ops">기타 지원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">퇴직금 이관 작업 완료</span></div><div class="item-detail">불입금 적립 시작, 이관 과정에서 수익률 저조가 확인되어 주식형 꾸준한 적립 권장, 필요 시 담당자 매칭 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">성과공유 계약 관련 면담</span></div><div class="item-detail">제은경님과 수요일 면담 진행.</div></li>
+          <li><div class="item-row"><span class="item-title">1~5층 기획 및 화장품 유통 검토</span></div><div class="item-detail">1~5층 전체 구성 기획 진행 중, 완료 시 공유 예정. 화장품 판매 리스트 및 유통업체 조사를 위해 빅토리아님에게 조사·콘텐츠 제작 의뢰.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7월 5주 -->
+    <div class="tab-panel" id="w5">
+      <div class="week-period">보고 기간: 2026. 7. 27 – 7. 31</div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip staff"></div><span class="cat-name staff">직원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">팀별 업무 분장 완료·정비</span></div><div class="item-detail">상담팀 업무 분장 완료, 피부팀 분장표도 수정 반영해 전 팀원과 공유.</div></li>
+          <li><div class="item-row"><span class="item-title">간호팀 인력 부족 대응</span></div><div class="item-detail">상담팀 신혜님이 간호 업무를 겸임하되 상담 고유 업무는 빈 시간대에 처리. 병원 스케줄 변동에 따라 원장님이 매일 상황 체크, 데스크가 바쁠 땐 피부팀 정은·수진님이 지원. 필요 시 CCTV 공유로 현황 파악.</div></li>
+          <li><div class="item-row"><span class="item-title">간호팀 인력 충원 계획 확정</span></div><div class="item-detail">총 5명 체제로, 8월·10월에 각 1명씩 구인(병동 경력자 지원 가능). 민지 선생님이 8월 한 달간 지원, 마이님이 민경님 후배 참관 일정 조율.</div></li>
+          <li><div class="item-row"><span class="item-title">CS 재교육 시작 (8.1~)</span></div><div class="item-detail">강태경 교수님이 리드, 피부·상담팀 중심으로 잔디 CS교육 채팅방 운영. 추후 간호팀까지 확대 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">수술실 업무 매뉴얼 정비</span></div><div class="item-detail">간호팀이 작성한 매뉴얼 확인 완료, 잔디 드라이브(매뉴얼_수술 폴더)에 업로드.</div></li>
+          <li><div class="item-row"><span class="item-title">법무부 외국인환자우수 유치기관 신청 완료</span></div><div class="item-detail">실적 기준을 충족해 신청 완료, 카프 인증기관 기준도 함께 충족. 나연님이 작성한 외국인환자 리뷰 글은 더원인러브 지원사업 폴더에 업로드, 마이님을 법인 드라이브에 초대 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">잔디·구글 드라이브 자료 관리 체계 재확인</span></div><div class="item-detail">구글 드라이브는 업무보고, 사진·주사제 재고 파악용으로 한정하고 그 외 확정 자료는 잔디 드라이브에서 관리. 드라이브 담당자별 관리 책임 강조.</div></li>
+          <li><div class="item-row"><span class="item-title">구글 시트 보고 체계 전환 예고</span></div><div class="item-detail">8월부터 월 단위 보고로 전환. 나라별 문의량 변동 특이사항을 지속 관찰.</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip pr"></div><span class="cat-name pr">홍보</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">벨로테로·에버클 도입 공지·지식 글 업로드</span></div><div class="item-detail">공지·지식 콘텐츠 링크 공유, 성희님에게 시술 이미지 업로드 요청(구글 드라이브 공유 사진 폴더 활용).</div></li>
+        </ul>
+      </div>
+      <div class="cat-block">
+        <div class="cat-header"><div class="cat-pip ops"></div><span class="cat-name ops">기타 지원</span></div>
+        <ul class="item-list">
+          <li><div class="item-row"><span class="item-title">PC 포맷 후 지침 매뉴얼 업데이트</span></div><div class="item-detail">신혜님이 업데이트한 매뉴얼을 잔디 드라이브에 업로드. 에스원 보안 계정 업데이트는 마이님이 진행, 완료 후 잔디 드라이브 반영(계정 없는 PC는 '계정 없음'으로 표기).</div></li>
+          <li><div class="item-row"><span class="item-title">수출기업 인증 신청 진행</span></div><div class="item-detail">이번 수정 신청 통과 시 4~6월분도 즉시 신청 예정.</div></li>
+          <li><div class="item-row"><span class="item-title">1~5층 기획 및 설계 진행</span></div><div class="item-detail">8월부터 진행 상황을 전체 공유 예정.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">(주)더원인러브</div>
+    <div>MSO 월간 업무 보고서 · 2026년 7월 · 팀장 홍소연</div>
+  </div>
+</div>
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
